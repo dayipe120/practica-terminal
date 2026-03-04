@@ -205,3 +205,139 @@ archivo1.txt
 @dayipe120 ➜ /workspaces/practica-terminal/mi_practica (main) $ cp -fv carpeta1/archivo1.txt carpeta2/
 'carpeta1/archivo1.txt' -> 'carpeta2/archivo1.txt'
 @dayipe120 ➜ /workspaces/practica-terminal/mi_practi
+
+
+ # Copiar un archivo
+
+ @dayipe120 ➜ /workspaces/practica-terminal (main) $ touch prueba.txt
+@dayipe120 ➜ /workspaces/practica-terminal (main) $ ls
+README.md  mi_practica  proyecto_final  prueba.txt
+@dayipe120 ➜ /workspaces/practica-terminal (main) $ copia_prueba.txt
+bash: copia_prueba.txt: command not found
+@dayipe120 ➜ /workspaces/practica-terminal (main) $ ls
+README.md  mi_practica  proyecto_final  prueba.txt
+@dayipe120 ➜ /workspaces/practica-terminal (main) $ 
+
+
+# touch archivo7.txtCopiar un directorio
+@dayipe120 ➜ /workspaces/practica-terminal (main) $ mkdir carpeta3
+@dayipe120 ➜ /workspaces/practica-terminal (main) $ cd carpeta3
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ mkdir archivo4.txt
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ 
+
+ # Forzar la sobrescritura de archivos
+dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ touch archivo7.txt
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ cp archivo7.txt documentos/
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ cp -f archivo7.txt documentos/
+
+# Mostrar mensajes detallados
+
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ cp -v archivo7.txt documentos/
+'archivo7.txt' -> 'documentos/archivo7.txt'
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ 
+
+# Preservar atributos de archivos
+
+'archivo7.txt' -> 'documentos/archivo7.txt'
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ touch archivo8.txt
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ touch -d "2022-01-01" archivo8.txt
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ cp -p archivo8.txt copia_archivo8.txt
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ ls -l archivo8.txt copia_archivo8.txt
+-rw-rw-rw- 1 codespace codespace 0 Jan  1  2022 archivo8.txt
+-rw-rw-rw- 1 codespace codespace 0 Jan  1  2022 copia_archivo8.txt
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ 
+
+# Copiar archivos con patrones
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ touch archivo_a.txt archivo_b.txt archivo_c.txt
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ cp archivo_*.txt documentos/
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ ls documentos/
+archivo7.txt  archivo_a.txt  archivo_b.txt  archivo_c.txt
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ 
+
+# Renombrar Archivos Simples
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ touch prueba.txt
+mv prueba.txt archivo_renombrado.txt
+ls
+archivo4.txt  archivo8.txt   archivo_b.txt  archivo_renombrado.txt  documentos
+archivo7.txt  archivo_a.txt  archivo_c.txt  copia_archivo8.txt
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ 
+
+ # Renombrar Directorios
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ mkdir temporal
+mv temporal archivos_temporales
+ls
+archivo4.txt  archivo8.txt   archivo_b.txt  archivo_renombrado.txt  copia_archivo8.txt
+archivo7.txt  archivo_a.txt  archivo_c.txt  archivos_temporales     documentos
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ 
+
+
+# Mover Archivos a Otro Directorio
+
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ mkdir documentos
+touch informe.txt
+mv informe.txt documentos/
+ls documentos/
+mkdir: cannot create directory ‘documentos’: File exists
+archivo7.txt  archivo_a.txt  archivo_b.txt  archivo_c.txt  informe.txt
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ 
+
+# Mover Múltiples Archivos
+
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ touch archivo1.txt archivo2.txt archivo3.txt
+mkdir respaldos
+mv *.txt respaldos/
+ls respaldos/
+archivo1.txt  archivo3.txt  archivo7.txt  archivo_a.txt  archivo_c.txt           copia_archivo8.txt
+archivo2.txt  archivo4.txt  archivo8.txt  archivo_b.txt  archivo_renombrado.txt
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ 
+
+# Mover y Renombrar al Mismo Tiempo
+
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ touch datos_originales.txt
+mkdir backup
+mv datos_originales.txt backup/datos_backup.txt
+ls backup/
+datos_backup.txt
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ 
+
+# Evitar Sobrescritura con i
+
+dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ touch archivo_existente.txt
+mkdir documento
+touch documento/archivo_existente.txt
+mv -i archivo_existente.txt documento/
+ls documento/
+mv: overwrite 'documento/archivo_existente.txt'? 
+
+# Actualizar Solo Archivos Nuevos con u
+
+
+echo "Contenido viejo" > archivo_viejo.txt
+mkdir respaldo
+cp archivo_viejo.txt respaldo/
+echo "Contenido nuevo" > archivo_viejo.txt
+mv -u archivo_viejo.txt respaldo/
+cat respaldo/archivo_viejo.txt
+Contenido nuevo
+
+# Mover Archivos a Rutas Absolutas
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ touch archivo_absoluto.txt
+mv archivo_absoluto.txt /tmp/
+ls /tmp/
+archivo_absoluto.txt  dockerd.log  storage_version.txt         vscode-ipc-4431d0ae-dbb2-4855-9b2e-abca7290edf3.sock
+codespaces_logs       sshd.log     vscode-git-cd2785e3aa.sock  vscode-ipc-8645d524-2c56-4972-8a09-da0d0fd09e43.sock
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ 
+
+# Mover Archivos con Espacios en el Nombre
+
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ touch "mi archivo.txt"
+mkdir destino
+mv "mi archivo.txt" destino/
+ls destino/
+'mi archivo.txt'
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ 
+
+
+
+
+
