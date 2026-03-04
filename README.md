@@ -185,3 +185,23 @@ archivo1.txt  archivo2.txt  carpeta1  carpeta2
 
 
 
+# Copiar un archivo
+
+@dayipe120 ➜ /workspaces/practica-terminal/mi_practica (main) $ touch prueba.txt
+@dayipe120 ➜ /workspaces/practica-terminal/mi_practica (main) $ cp prueba.txt copia_prueba.txt
+@dayipe120 ➜ /workspaces/practica-terminal/mi_practica (main) $ ls
+archivo1.txt  archivo2.txt  carpeta1  carpeta2  copia_prueba.txt  prueba.txt
+@dayipe120 ➜ /workspaces/practica-terminal/mi_practica (main) $ 
+
+# Copiar un directorio
+@dayipe120 ➜ /workspaces/practica-terminal/mi_practica (main) $ cp -r carpeta1 carpeta2
+@dayipe120 ➜ /workspaces/practica-terminal/mi_practica (main) $ ls carpeta2
+carpeta1
+
+# Usar opciones avanzadas
+
+@dayipe120 ➜ /workspaces/practica-terminal/mi_practica (main) $ ls carpeta1
+archivo1.txt
+@dayipe120 ➜ /workspaces/practica-terminal/mi_practica (main) $ cp -fv carpeta1/archivo1.txt carpeta2/
+'carpeta1/archivo1.txt' -> 'carpeta2/archivo1.txt'
+@dayipe120 ➜ /workspaces/practica-terminal/mi_practi
