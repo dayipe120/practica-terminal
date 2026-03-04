@@ -137,5 +137,51 @@ Preferencias de tu terminal o shell (.bashrc, .zshrc)
 
 Llaves y datos de seguridad (.ssh)
 
+# Explora tu directorio actual
+
+@dayipe120 ➜ /workspaces/practica-terminal (main) $ ls
+README.md  proyecto_final
+@dayipe120 ➜ /workspaces/practica-terminal (main) $ ls -a
+.  ..  .git  README.md  proyecto_final
+@dayipe120 ➜ /workspaces/practica-terminal (main) $ ls -l
+total 12
+-rw-rw-rw-  1 codespace root      4831 Mar  2 04:12 README.md
+drwxrwxrwx+ 5 codespace codespace 4096 Feb 25 04:06 proyecto_final
+
+Responde: ¿Qué significa el primer carácter d en algunos elementos?
+
+d = directorio (carpeta)
+
+@dayipe120 ➜ /workspaces/practica-terminal (main) $ ls -lah
+total 24K
+drwxrwxrwx+ 4 codespace root      4.0K Feb 25 04:05 .
+drwxr-xrwx+ 5 codespace root      4.0K Feb 25 04:04 ..
+drwxrwxrwx+ 8 codespace root      4.0K Mar  2 04:13 .git
+-rw-rw-rw-  1 codespace root      5.3K Mar  4 02:17 README.md
+drwxrwxrwx+ 5 codespace codespace 4.0K Feb 25 04:06 proyecto_final
+@dayipe120 ➜ /workspaces/practica-terminal (main) $ 
+
+ #  Desafío Final
+@dayipe120 ➜ /workspaces/practica-terminal (main) $ mkdir mi_practica
+@dayipe120 ➜ /workspaces/practica-terminal (main) $ cd mi_practica
+@dayipe120 ➜ /workspaces/practica-terminal/mi_practica (main) $ touch archivo1.txt archivo2.txt
+@dayipe120 ➜ /workspaces/practica-terminal/mi_practica (main) $ mkdir carpeta1 carpeta2
+@dayipe120 ➜ /workspaces/practica-terminal/mi_practica (main) $ ls -lah
+total 16K
+drwxrwxrwx+ 4 codespace codespace 4.0K Mar  4 02:19 .
+drwxrwxrwx+ 5 codespace root      4.0K Mar  4 02:18 ..
+-rw-rw-rw-  1 codespace codespace    0 Mar  4 02:18 archivo1.txt
+-rw-rw-rw-  1 codespace codespace    0 Mar  4 02:18 archivo2.txt
+drwxrwxrwx+ 2 codespace codespace 4.0K Mar  4 02:19 carpeta1
+drwxrwxrwx+ 2 codespace codespace 4.0K Mar  4 02:19 carpeta2
+@dayipe120 ➜ /workspaces/practica-terminal/mi_practica (main) $ ls -R
+.:
+archivo1.txt  archivo2.txt  carpeta1  carpeta2
+
+./carpeta1:
+
+./carpeta2:
+@dayipe120 ➜ /workspaces/practica-terminal/mi_practica (main) $ 
+
 
 
