@@ -337,6 +337,97 @@ ls destino/
 'mi archivo.txt'
 @dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ 
 
+ #  Crear y eliminar un archivo básico
+
+ dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ touch archivo1.txt
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ ls
+archivo1.txt  archivo_existente.txt  archivos_temporales  backup  destino  documento  documentos  respaldo  respaldos
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ rm archivo1.txt
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ ls
+archivo_existente.txt  archivos_temporales  backup  destino  documento  documentos  respaldo  respaldos
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ 
+
+ # Eliminar múltiples archivos
+
+ @dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ touch archivoA.txt archivoB.txt archivoC.txt
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ rm archivoA.txt archivoB.txt archivoC.txt
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ ls
+archivo_existente.txt  archivos_temporales  backup  destino  documento  documentos  respaldo  respaldos
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ 
+
+# Eliminar con confirmación
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ touch importante.txt
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ rm -i importante.txt
+rm: remove regular empty file 'importante.txt'? n
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ 
+
+# Eliminar un directorio vacío
+
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ mkdir vacío
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ rmdir vacío
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ ls
+archivo_existente.txt  archivos_temporales  backup  destino  documento  documentos  importante.txt  respaldo  respaldos
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ 
+
+ # Intentar eliminar un directorio no vacío
+
+ @dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ mkdir lleno
+touch lleno/archivo1.txt lleno/archivo2.txt
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ rmdir lleno
+rmdir: failed to remove 'lleno': Directory not empty
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ 
+
+# Eliminar un directorio no vacío con rm -r
+
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ mkdir proyecto
+touch proyecto/main.py proyecto/config.json
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ rm -r proyecto
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ ls
+archivo_existente.txt  archivos_temporales  backup  destino  documento  documentos  importante.txt  lleno  respaldo  respaldos
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ 
+
+# Eliminar con confirmación recursiva
+
+dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ mkdir datos
+touch datos/registro.txt datos/backup.log
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ rm -ri datos
+rm: descend into directory 'datos'? y
+rm: remove regular empty file 'datos/registro.txt'? 
+
+# Forzar la eliminación sin confirmación
+
+m: descend into directory 'datos'? y
+rm: remove regular empty file 'datos/registro.txt'? mkdir temp
+rm: remove regular empty file 'datos/backup.log'? touch temp/file1.txt temp/file2.txt
+rm: remove directory 'datos'? n
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ rm -rf temp
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ ls
+archivo_existente.txt  archivos_temporales  backup  datos  destino  documento  documentos  importante.txt  lleno  respaldo  respaldos
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ 
+
+# Estructura compleja de directorios
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ mkdir -p proyecto/{src,docs,tests}
+touch proyecto/src/main.c proyecto/docs/manual.txt proyecto/tests/test1.py
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ rm -r proyecto
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ ls
+archivo_existente.txt  archivos_temporales  backup  datos  destino  documento  documentos  importante.txt  lleno  respaldo  respaldos
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ 
+
+ 
+# Desafío final
+
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ mkdir -p proyecto/{src,docs,tests}
+touch proyecto/src/main.c proyecto/docs/manual.txt proyecto/tests/test1.py
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ rm -r proyecto
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ ls
+archivo_existente.txt  archivos_temporales  backup  datos  destino  documento  documentos  importante.txt  lleno  respaldo  respaldos
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ mkdir -p trabajo/{informes,temporal,archivos}
+@dayipe120 ➜ /workspaces/practica-terminal/carpeta3 (main) $ touch trabajo/informes/reporte1.doc trabajo/temporal/notas.txt trabajo/archivos/datos.csv
+
+
+
+
+
 
 
 
